@@ -48,6 +48,23 @@ body {
   border: none;
   box-shadow: 0 0 2px 1px #e7e7e7;
 }
+.open-sidebar {
+  position: fixed;
+  display: none;
+  padding: 10rem 1rem;
+  top: 0;
+  right: 0;
+  height: 100%;
+  cursor: pointer;
+  border: none;
+  background-color: #333;
+  z-index: 9;
+  transition: all 0.4s;
+}
+.open-sidebar img {
+  width: 3rem;
+  transition: all 0.5s;
+}
 .header .navbar {
   position: relative;
   padding: 3rem 10rem;
@@ -185,6 +202,7 @@ body {
 }
 .main .sidebar {
   margin-left: 5rem;
+  transition: all 0.4s;
 }
 .main .sidebar .about-author {
   margin-bottom: 7rem;
@@ -439,6 +457,9 @@ body {
   }
 }
 @media (max-width: 750px) {
+  .open-sidebar {
+    display: block;
+  }
   .header .navbar {
     padding: 3rem 1rem;
   }
@@ -464,8 +485,14 @@ body {
     font-size: 1.5rem;
   }
   .main .sidebar {
-    display: none;
+    position: fixed;
     margin-left: 0;
+    padding: 2rem;
+    top: 0;
+    right: -32rem;
+    bottom: 0;
+    background-color: #fff;
+    overflow-y: auto;
   }
   .footer-slider img {
     margin: 0 auto;

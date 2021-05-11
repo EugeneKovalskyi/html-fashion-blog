@@ -37,6 +37,25 @@ body {
 }
 
 // positioning
+.open-sidebar {
+  position: fixed;
+  display: none;
+  padding: 10rem 1rem;
+  top: 0;
+  right: 0;
+  height: 100%;
+  cursor: pointer;
+  border: none;
+  background-color: #333;
+  z-index: 9;
+  transition: all 0.4s;
+
+  img {
+    width: 3rem;
+    transition: all 0.5s;
+  }
+}
+
 .header {
   .navbar {
     position: relative;
@@ -207,6 +226,7 @@ body {
 
   .sidebar {
     margin-left: 5rem;
+    transition: all 0.4s;
 
     .about-author {
       margin-bottom: 7rem;
@@ -519,6 +539,10 @@ body {
 }
 
 @media (max-width: 750px) {
+  .open-sidebar {
+    display: block;
+  }
+
   .header {
     .navbar {
       padding: 3rem 1rem;
@@ -556,8 +580,14 @@ body {
     }
 
     .sidebar {
-      display: none;
+      position: fixed;
       margin-left: 0;
+      padding: 2rem;
+      top: 0;
+      right: -32rem;
+      bottom: 0;
+      background-color: #fff;
+      overflow-y: auto;
     }
   }
 

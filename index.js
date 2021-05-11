@@ -1,7 +1,4 @@
 $(document).ready(function () {
-  /// rellax.js init
-  var rellax = new Rellax('.rellax')
-
   // slick-slider
   $('.footer-slider').slick({
     arrows: false,
@@ -46,10 +43,21 @@ $(document).ready(function () {
     $(event.target).addClass('active')
   })
 
-  // on resize screen resolution
-  $(window).on('resize', function () {
-    if ($(document).width() < 750) {
-      $('.main .sidebar').attr('data-rellax-speed', '0')
+  // onclick open-sidebar button
+  const sidebar = $('.main .sidebar')
+  const openSidebarBtn = $('.open-sidebar')
+  const openSidebarArrow = $('.open-sidebar img')
+  openSidebarBtn.on('click', (event) => {
+    if (openSidebarBtn.data('opened')) {
+      sidebar.css('right', '-32rem')
+      openSidebarBtn.css('right', '0')
+      openSidebarArrow.css('transform', 'none')
+      openSidebarBtn.data('opened', false)
+    } else {
+      sidebar.css('right', '0')
+      openSidebarBtn.css('right', '32rem')
+      openSidebarArrow.css('transform', 'rotate(180deg)')
+      openSidebarBtn.data('opened', true)
     }
   })
 })
